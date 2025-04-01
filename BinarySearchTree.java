@@ -70,8 +70,8 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
     /**
-     * In-order traversal of the BST
-     * @param consumer Consumer function to process each node
+     * Recorrido en orden del AB
+     * @param consumer Funcion de consumo para cada nodo
      */
     public void inOrderTraversal(java.util.function.Consumer<E> consumer) {
         inOrderRecursive(root, consumer);

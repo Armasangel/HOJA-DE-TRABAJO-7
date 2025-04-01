@@ -67,7 +67,7 @@ public class RetailPriceFinder {
     }
 
     public void listProductsByPriceAscending() {
-        System.out.println("\n--- Products Ordered by Price (Ascending) ---");
+        System.out.println("\n--- Productos Ordenados por Precio (Ascendente) ---");
         productList.sort(new ProductByPriceComparator());
         for (Product product : productList) {
             System.out.println(product);
@@ -75,7 +75,7 @@ public class RetailPriceFinder {
     }
 
     public void listProductsByPriceDescending() {
-        System.out.println("\n--- Products Ordered by Price (Descending) ---");
+        System.out.println("\n--- Productos Ordenados por Precio (Descendente) ---");
         productList.sort(new ProductByPriceComparator().reversed());
         for (Product product : productList) {
             System.out.println(product);
@@ -83,7 +83,7 @@ public class RetailPriceFinder {
     }
 
     public void listProductsBySKU() {
-        System.out.println("\n--- Products Ordered by SKU ---");
+        System.out.println("\n--- Productos Ordenados por SKU ---");
         productBST.inOrderTraversal(product -> System.out.println(product));
     }
 
@@ -93,30 +93,30 @@ public class RetailPriceFinder {
         
         while (running) {
             System.out.println("\n--- Retail Price Finder ---");
-            System.out.println("1. Search product by SKU");
-            System.out.println("2. List products by price (ascending)");
-            System.out.println("3. List products by price (descending)");
-            System.out.println("4. List products by SKU");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.println("1. Buscar producto por SKU");
+            System.out.println("2. Listar productos por precio (ascendente)");
+            System.out.println("3. Listar Productos por precio (descendente)");
+            System.out.println("4. Listar productos por SKU");
+            System.out.println("5. Salir");
+            System.out.print("Ingrese una opción: ");
             
             int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
+            scanner.nextLine();
             
             switch (choice) {
                 case 1:
-                    System.out.print("Enter SKU to search: ");
+                    System.out.print("Ingrese el SKU a buscar: ");
                     String sku = scanner.nextLine();
                     Product found = searchBySKU(sku);
                     if (found != null) {
-                        System.out.println("\nFound product:");
+                        System.out.println("\nPrudcto encontrado:");
                         System.out.println("SKU: " + found.getSku());
-                        System.out.println("Name: " + found.getProductName());
-                        System.out.println("Category: " + found.getCategory());
-                        System.out.println("Retail Price: $" + found.getPriceRetail());
-                        System.out.println("Current Price: $" + found.getPriceCurrent() + " (Best price)");
+                        System.out.println("Nombre: " + found.getProductName());
+                        System.out.println("Categoria: " + found.getCategory());
+                        System.out.println("Precio al por menor: $" + found.getPriceRetail());
+                        System.out.println("Precio actual: $" + found.getPriceCurrent() + " (Best price)");
                     } else {
-                        System.out.println("Product not found with SKU: " + sku);
+                        System.out.println("No se encontro el producto con el SKU: " + sku);
                     }
                     break;
                     
@@ -138,7 +138,7 @@ public class RetailPriceFinder {
                     break;
                     
                 default:
-                    System.out.println("Invalid choice, please try again.");
+                    System.out.println("Opción invalida. Por favor intente de nuevo");
             }
         }
         
